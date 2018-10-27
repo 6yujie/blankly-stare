@@ -24,8 +24,10 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    Card.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    Card.h
 
 FORMS    += mainwindow.ui

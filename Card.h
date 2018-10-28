@@ -36,8 +36,10 @@ class Card
 {
 public:
     Card(card_points p, card_color c);
-    card_points get_points();
-    card_color  get_color();
+    card_points get_points() const;
+    card_color  get_color() const;
+
+    bool operator == (const Card &cd);
 
 private:
     card_points points;

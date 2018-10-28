@@ -3,6 +3,12 @@
 
 #include <QMainWindow>
 #include <QString>
+#include <QDebug>
+
+#include <vector>
+#include <algorithm>
+
+using namespace std;
 
 namespace Ui {
 class MainWindow;

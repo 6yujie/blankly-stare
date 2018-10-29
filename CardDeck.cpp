@@ -7,7 +7,7 @@ CardDeck::CardDeck(int decks)
         add_one_deck();
     }
 
-    random_shuffle(deck.begin(), deck.end());
+    //random_shuffle(deck.begin(), deck.end());
 }
 
 //判断牌堆是否为空
@@ -42,12 +42,21 @@ void CardDeck::add_one_deck()
     deck.push_back(red_joker);
     deck.push_back(black_joker);
 
-//    for(int i = ace; i <= king;  i++)
-//    {
-//        for(int j = heart; j <= diamond; j++)
-//        {
-//            Card tmp_card(card_points(i), card_color(j));
-//            deck.push_back(tmp_card);
-//        }
-//    }
+    for(int i = ace; i <= king;  i++)
+    {
+        for(int j = heart; j <= diamond; j++)
+        {
+            Card tmp_card(Card::card_point_cast(i), Card::card_color_cast(j));
+            deck.push_back(tmp_card);
+        }
+    }
+}
+
+void CardDeck::print_cards()
+{
+    for(unsigned int i = 0; i < deck.size(); i++)
+    {
+        qDebug()<<deck[i].get_color_str() + " " + deck[i].get_point_str();
+    }
+    qDebug()<<deck.size()<<" total";
 }

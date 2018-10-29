@@ -12,6 +12,8 @@ public:
     void get_one_card(Card cd);
     void give_one_card(CardDeck &to, Card cd);
 
+    void print_cards();
+
 private:
     vector<Card> deck;
 

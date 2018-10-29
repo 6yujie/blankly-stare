@@ -14,7 +14,7 @@ enum card_color
     black    //小王
 };
 
-enum card_points
+enum card_point
 {
     ace,    //A
     two,    //2
@@ -35,14 +35,20 @@ enum card_points
 class Card
 {
 public:
-    Card(card_points p, card_color c);
-    card_points get_points() const;
-    card_color  get_color() const;
+    Card(card_point p, card_color c);
+
+    QString get_point_str();
+    QString get_color_str();
+
+    static card_color card_color_cast(int i);
+    static card_point card_point_cast(int i);
 
     bool operator == (const Card &cd);
+    card_point get_point() const;
+    card_color  get_color() const;
 
 private:
-    card_points points;
+    card_point point;
     card_color color;
 };
 

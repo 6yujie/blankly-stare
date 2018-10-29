@@ -12,13 +12,23 @@ MainWindow::MainWindow(QWidget *parent) :
     CardDeck deck1(1);
     CardDeck deck2(0);
 
+    qDebug()<<"Deck 1:";
+    deck1.print_cards();
+
+    qDebug()<<"Deck 2";
+    deck2.print_cards();
+
     Card cd(joker, red);
     Card cd1(ace, diamond);
     deck1.give_one_card(deck2, cd);
     deck1.give_one_card(deck2, cd1);
     deck1.give_one_card(deck1, cd);
 
-    qDebug()<<"stop";
+    qDebug()<<"Deck 1:";
+    deck1.print_cards();
+
+    qDebug()<<"Deck 2";
+    deck2.print_cards();
 }
 
 MainWindow::~MainWindow()

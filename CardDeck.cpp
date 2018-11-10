@@ -7,7 +7,7 @@ CardDeck::CardDeck(int decks)
         add_one_deck();
     }
 
-    //random_shuffle(deck.begin(), deck.end());
+    random_shuffle(deck.begin(), deck.end());
 }
 
 //判断牌堆是否为空
@@ -22,14 +22,24 @@ void CardDeck::get_one_card(Card cd)
     deck.push_back(cd);
 }
 
-//给一张牌到别的牌堆
-void CardDeck::give_one_card(CardDeck &to, Card cd)
+//给一张选定的牌到别的牌堆
+void CardDeck::give_selected_card(CardDeck &to, Card cd)
 {
     vector<Card>::iterator it = find(deck.begin(), deck.end(), cd);
     if(it != deck.end())
     {
         to.get_one_card(cd);
         deck.erase(it);
+    }
+}
+
+//发一张牌给别的牌堆
+void CardDeck::give_one_card(CardDeck &to)
+{
+    if(!deck.empty())
+    {
+        to.get_one_card(deck[0]);
+        deck.erase(deck.begin());
     }
 }
 
@@ -59,4 +69,9 @@ void CardDeck::print_cards()
         qDebug()<<deck[i].get_color_str() + " " + deck[i].get_point_str();
     }
     qDebug()<<deck.size()<<" total";
+}
+
+void CardDeck::sort_cards()
+{
+    sort(deck.begin(), deck.end());
 }

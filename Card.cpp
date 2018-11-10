@@ -99,3 +99,44 @@ bool Card::operator == (const Card &cd)
         return false;
     }
 }
+
+bool Card::operator < (const Card &cd)
+{
+    //点数：数字越小，牌越小
+    if((int)point-(int)cd.point > 0)
+    {
+        return false;
+    }
+    else if((int)point-(int)cd.point < 0)
+    {
+        return true;
+    }
+    else
+    {
+        //花色：数字越小，牌越大
+        if((int)color - (int)cd.color > 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+}
+
+bool Card::operator > (const Card &cd)
+{
+    if(*this < cd)
+    {
+        return false;
+    }
+    else if(*this == cd)
+    {
+        return false;
+    }
+    else
+    {
+        return true;
+    }
+}

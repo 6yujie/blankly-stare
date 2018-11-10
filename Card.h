@@ -6,8 +6,8 @@
 //扑克花色
 enum card_color
 {
-    heart,   //红桃 ♥
     spade,   //黑桃 ♠
+    heart,   //红桃 ♥
     club,    //梅花 ♣
     diamond, //方块 ♦
     red,     //大王
@@ -44,6 +44,9 @@ public:
     static card_point card_point_cast(int i);
 
     bool operator == (const Card &cd);
+    bool operator < (const Card &cd);
+    bool operator > (const Card &cd);
+
     card_point get_point() const;
     card_color  get_color() const;
 

@@ -33,3 +33,6 @@ HEADERS  += mainwindow.h \
     CardDeck.h
 
 FORMS    += mainwindow.ui
+
+RESOURCES += \
+    res.qrc
